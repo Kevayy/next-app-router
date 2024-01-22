@@ -7,13 +7,8 @@ export function BlogList() {
     return (
         <>
             <div className="content-section-title">Blogs</div>
-            {
-                blogs.map(blog =>
-                    <div key={blog}>{blog}</div>    
-                )
-            }
             <div className="content-list">
-                {/* { blogs.map(blog =>
+                { blogs.map(blog =>
                     <div className="content-item" key={blog.id}>
                         <div className="content-item__image-container">
                             <Image src={blog.coverImage} objectFit="cover" fill={true} sizes="(max-width: 768px)" alt={blog.title} />
@@ -23,7 +18,7 @@ export function BlogList() {
                             <div>{blog.description}</div>
                         </div>
                     </div>
-                )} */}
+                )}
             </div>
         </>
     )

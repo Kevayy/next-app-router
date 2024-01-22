@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import matter from "gray-matter";
 
 const blogsDir = path.join(process.cwd(), "src", "content", "blogs");
 const portfoliosDir = path.join(process.cwd(), "src", "content", "portfolios");
@@ -16,8 +17,11 @@ export function getBlogs() {
     const blogs = blogNames.map(name => {
         const filePath = path.join(blogsDir, name);
         const fileContent = fs.readFileSync(filePath, "utf8");
-        return fileContent;
-    })
+
+        const { data, content} = matter(fileContent);
+
+        return {...data, content};
+    });
 
     return blogs;
 }
@@ -28,8 +32,11 @@ export function getPortfolios() {
     const portfolios = portfolioNames.map(name => {
         const filePath = path.join(portfoliosDir, name);
         const fileContent = fs.readFileSync(filePath, "utf8");
-        return fileContent;
-    })
+        
+        const { data, content} = matter(fileContent);
+
+        return {...data, content};
+    });
 
     return portfolios;
 }
