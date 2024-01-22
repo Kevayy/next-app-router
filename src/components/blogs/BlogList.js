@@ -1,8 +1,8 @@
-import { getBlogs } from "@/utils/fetch";
+import { getBlogs } from "@/utils";
 import Image from "next/image";
 
-export async function BlogList() {
-    const {data: blogs} = await getBlogs();
+export function BlogList() {
+    const blogs = getBlogs();
 
     return (
         <>
