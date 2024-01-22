@@ -4,7 +4,7 @@ function getContent(id, author) {
 }
 
 export default function Content({params}) {
-    const [id, author] = params;
+    const [id, author] = params.id;
 
     const content = getContent(id, author);
     
