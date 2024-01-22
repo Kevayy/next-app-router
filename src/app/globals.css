@@ -47,3 +47,16 @@
 .navigation-item {
     margin-right: 10px;
 }
+
+.unstyled-link {
+    color: black;
+    text-decoration: none;
+}
+
+.link {
+    color: black;
+}
+
+.link.active {
+    color: blue;
+}
