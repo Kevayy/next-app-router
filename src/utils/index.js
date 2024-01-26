@@ -14,8 +14,18 @@ export async function delay(ms) {
     })
 }
 
+function getPortfolioNames() {
+    const names = fs.readdirSync(portfoliosDir);
+    return names;
+}
+
+function getBlogNames() {
+    const names = fs.readdirSync(blogsDir);
+    return names;
+}
+
 export function getBlogs() {
-    const blogNames = fs.readdirSync(blogsDir);
+    const blogNames = getBlogNames();
 
     const blogs = blogNames.map(name => {
         const filePath = path.join(blogsDir, name);
@@ -31,7 +41,7 @@ export function getBlogs() {
 }
   
 export function getPortfolios() {
-    const portfolioNames = fs.readdirSync(portfoliosDir);
+    const portfolioNames = getPortfolioNames();
 
     const portfolios = portfolioNames.map(name => {
         const filePath = path.join(portfoliosDir, name);
@@ -77,4 +87,11 @@ export async function getPortfolioBySlug(slug) {
     const htmlContent = await markdownToHtml(content);
     data.slug = slug;
     return {...data, content: htmlContent};
+}
+
+export function getContentCount() {
+    return {
+        blogs: getBlogNames().length,
+        portfolios: getPortfolioNames().length
+    }
 }
