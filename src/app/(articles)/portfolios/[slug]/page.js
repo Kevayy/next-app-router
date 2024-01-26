@@ -13,11 +13,9 @@ export default async function PortfolioDetail({params}) {
 
     return (
         <>
-            <div>Portfolio Data: {portfolio.title}, {portfolio.description}</div>
-
-            <hr />
-
-            <div dangerouslySetInnerHTML={{__html: portfolio.content}}></div>
+            <article className="prose lg:prose-lg markdown-image-50">
+                <div dangerouslySetInnerHTML={{__html: portfolio.content}}></div>
+            </article>
         </>
     )
 }
