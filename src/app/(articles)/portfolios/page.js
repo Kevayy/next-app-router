@@ -1,7 +1,10 @@
+import { PortfolioList } from "@/components/portfolios/PortfolioList";
 
 export default function Portfolios() {
 
     return (
-        <div>Hello Portfolios</div>
+        <div>
+            <PortfolioList />
+        </div>
     )
 }
